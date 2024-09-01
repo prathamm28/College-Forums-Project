@@ -1,10 +1,12 @@
 const express = require("express");
-const {chats} = require("./data/data.js");
+const dotenv = require("dotenv");
+const {chats} = require("../backend/data/data.jsx");
 
 const app = express();
+dotenv.config();
 
 app.get('/',(req,res) => {
-    res.send("API is Running");
+    res.send("API is Running Successfully");
 } );
 
 app.get('/api/chat', (req,res) => {
@@ -12,7 +14,10 @@ app.get('/api/chat', (req,res) => {
 });
 
 app.get('/api/chat/:id', (req,res) => {
-    console.send(req);
+    const singleChat = chats.find(c=>c._id === req.params.id);
+    res.send(singleChat);
 });
 
-app.listen(5000,console.log("Server Standard on PORT 5000"));
+const PORT = process.env.PORT || 5000
+
+app.listen(5000, console.log(`Server Standard on PORT 5000 ${PORT}`));
