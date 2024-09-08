@@ -17,7 +17,7 @@ const Homepage = () => {
       borderWidth="1px"
       >
         <Text fontSize="4xl" fontFamily="Work sans" color="black">
-          Talk-A-Tive
+          College-Chat-Group
           </Text>
       </Box >
       <Box bg="white" w="100%" p={4} borderRadius="lg" color="black"  borderWidth="1px" >
